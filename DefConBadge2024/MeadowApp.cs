@@ -61,29 +61,6 @@ namespace DefConBadge2024
             return adjustedBrightness;
         }
 
-        public override async Task Run()
-        {
-            while (true)
-            {
-                DrawSplash(defcon1);
-                await Task.Delay(10000).ConfigureAwait(false);
-
-                currentPage.StartUpdating(projLab, graphics);
-                await Task.Delay(20000).ConfigureAwait(false);
-                currentPage.StopUpdating();
-
-                DrawSplash(defcon2);
-                await Task.Delay(3000).ConfigureAwait(false);
-
-                currentPage.StartUpdating(projLab, graphics);
-                await Task.Delay(20000).ConfigureAwait(false);
-                currentPage.StopUpdating();
-
-                DrawSplash(defcon3);
-                await Task.Delay(3000).ConfigureAwait(false);
-            }
-        }
-
         public override Task Initialize()
         {
             Console.WriteLine("Initialize hardware...");
@@ -113,6 +90,29 @@ namespace DefConBadge2024
             defcon3 = LoadImage("defcon32-3.jpg");
 
             return Task.CompletedTask;
+        }
+
+        public override async Task Run()
+        {
+            while (true)
+            {
+                DrawSplash(defcon1);
+                await Task.Delay(5000).ConfigureAwait(false);
+
+                currentPage.StartUpdating(projLab, graphics);
+                await Task.Delay(20000).ConfigureAwait(false);
+                currentPage.StopUpdating();
+
+                DrawSplash(defcon2);
+                await Task.Delay(3000).ConfigureAwait(false);
+
+                currentPage.StartUpdating(projLab, graphics);
+                await Task.Delay(20000).ConfigureAwait(false);
+                currentPage.StopUpdating();
+
+                DrawSplash(defcon3);
+                await Task.Delay(3000).ConfigureAwait(false);
+            }
         }
 
         void DrawSplash(IPixelBuffer buffer)
