@@ -7,11 +7,31 @@
         <LangVersion>10.0</LangVersion>
         <Nullable>enable</Nullable>
   </PropertyGroup>
-  <ItemGroup>
+  <!-- <ItemGroup>
     <None Remove="defcon32-1.jpg" />
     <None Remove="defcon32-2.jpg" />
     <None Remove="defcon32-3.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="sprites-soniccd\sonic-tap-0.jpg" />
+    <None Remove="sprites-soniccd\sonic-tap-1.jpg" />
+    <None Remove="sprites-soniccd\sonic-tap-2.jpg" />
+    <None Remove="sprites-soniccd\sonic-tap-3.jpg" />
+    <None Remove="sprites-sor2\axel-uppercut-0.bmp" />
+    <None Remove="sprites-sor2\axel-uppercut-0.jpg" />
+    <None Remove="sprites-sor2\axel-uppercut-1.jpg" />
+    <None Remove="sprites-sor2\axel-uppercut-2.jpg" />
+    <None Remove="sprites-sor2\axel-uppercut-3.jpg" />
+    <None Remove="sprites-sor2\axel-uppercut-4.jpg" />
+    <None Remove="sprites-sor2\axel-uppercut-5.jpg" />
+    <None Remove="sprites-sor2\axel-uppercut-6.jpg" />
+    <None Remove="sprites-tjearl\tjearl-tjwalk-0.jpg" />
+    <None Remove="sprites-tjearl\tjearl-tjwalk-1.jpg" />
+    <None Remove="sprites-tjearl\tjearl-tjwalk-2.jpg" />
+    <None Remove="sprites-tjearl\tjearl-tjwalk-3.jpg" />
+    <None Remove="sprites-tjearl\tjearl-tjwalk-4.jpg" />
+    <None Remove="sprites-tjearl\tjearl-tjwalk-5.jpg" />
+  </ItemGroup> -->
   <ItemGroup>
     <EmbeddedResource Include="defcon32-1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -20,6 +40,62 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="defcon32-3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="sprites-soniccd\sonic-tap-0.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-soniccd\sonic-tap-1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-soniccd\sonic-tap-2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-soniccd\sonic-tap-3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-sor2\axel-uppercut-0.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-sor2\axel-uppercut-0.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-sor2\axel-uppercut-1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-sor2\axel-uppercut-2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-sor2\axel-uppercut-3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-sor2\axel-uppercut-4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-sor2\axel-uppercut-5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-sor2\axel-uppercut-6.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-tjearl\tjearl-tjwalk-0.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-tjearl\tjearl-tjwalk-1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-tjearl\tjearl-tjwalk-2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-tjearl\tjearl-tjwalk-3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-tjearl\tjearl-tjwalk-4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sprites-tjearl\tjearl-tjwalk-5.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

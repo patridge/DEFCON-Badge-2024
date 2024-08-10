@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace DefConBadge2024
 {
     // Change F7FeatherV2 to F7FeatherV1 for V1.x boards
-    public class MeadowApp : App<F7CoreComputeV2>
+    public class MeadowApp : App<F7CoreComputeV2> //ProjectLabCoreComputeApp //App<F7CoreComputeV2>
     {
         IProjectLabHardware projLab;
 
@@ -21,7 +21,12 @@ namespace DefConBadge2024
 
         IBadgePage currentPage;
 
-        IBadgePage[] pages;
+        IBadgePage[] pages = new IBadgePage[] {
+            new GenesisAnimationsPage(),
+            // new EnvironmentPage(),
+            // new GraphPage(),
+            // new WiFiTrackerPage(),
+        };
 
         BufferRgb888 defcon1;
         BufferRgb888 defcon2;
@@ -93,13 +98,6 @@ namespace DefConBadge2024
             projLab.UpButton.Clicked += ButtonUp_Clicked;
 
             projLab.RgbLed.SetColor(Color.Green);
-
-            pages = new IBadgePage[]
-            {
-                new EnvironmentPage(),
-                new GraphPage(),
-                new WiFiTrackerPage(),
-            };
             foreach (var page in pages)
             {
                 page.Init(projLab);
@@ -123,14 +121,14 @@ namespace DefConBadge2024
 
             graphics.DrawBuffer(0, 0, buffer);
 
-            Console.WriteLine("Jpeg show");
+            // Console.WriteLine("Jpeg show");
 
             graphics.Show();
         }
 
-        BufferRgb888 LoadImage(string name)
+        static BufferRgb888 LoadImage(string name)
         {
-            var jpgData = LoadResource(name);
+            var jpgData = LoadResourceFilename(name);
 
             Console.WriteLine($"Loaded {jpgData.Length} bytes, decoding jpeg ...");
 
@@ -142,6 +140,28 @@ namespace DefConBadge2024
             Console.WriteLine($"Height {decoder.Height}");
 
             return new BufferRgb888(decoder.Width, decoder.Height, jpg);
+        }
+        public static IPixelBuffer LoadImage1(string name)
+        {
+            byte[] jpgData;
+            try
+            {
+                jpgData = LoadResource1(name);
+            }
+            catch (Exception)
+            {
+                Resolver.Log.Error($"Failed to load resource: {name}");
+                throw;
+            }
+
+            Resolver.Log.Info($"Loaded {jpgData.Length} bytes, decoding jpeg ...");
+
+            var decoder = new JpegDecoder();
+            var jpg = decoder.DecodeJpeg(jpgData);
+
+            Resolver.Log.Info($"Size: {jpg.Length} bytes; {decoder.Width}x{decoder.Height} pixels");
+
+            return new BufferRgb888(decoder.Width, decoder.Height, jpg).Convert<BufferRgb565>();
         }
 
         private void ButtonUp_Clicked(object sender, EventArgs e)
@@ -168,10 +188,15 @@ namespace DefConBadge2024
             currentPage.Left();
         }
 
-        byte[] LoadResource(string filename)
+        static byte[] LoadResourceFilename(string filename)
         {
             var assembly = Assembly.GetExecutingAssembly();
             var resourceName = $"DefConBadge2024.{filename}";
+            return LoadResource1(resourceName);
+        }
+        public static byte[] LoadResource1(string resourceName)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
